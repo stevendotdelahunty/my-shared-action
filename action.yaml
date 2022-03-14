@@ -1,0 +1,13 @@
+name: "My test action"
+description: "want to see if i can fire a repository dispatch"
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'doesNotReallyMatter'
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/my_action_triggered_by_a_repository_dispatch.yaml
+      with:
+        who-to-greet: ${{ inputs.who-to-greet }}
