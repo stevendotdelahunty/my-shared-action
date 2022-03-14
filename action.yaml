@@ -5,9 +5,11 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'doesNotReallyMatter'
+
 runs:
   using: "composite"
   steps:
-    - uses: .github/actions/my_action_triggered_by_a_repository_dispatch.yaml
-      with:
-        who-to-greet: ${{ inputs.who-to-greet }}
+    - name: my_action_triggered_by_a_repository_dispatch
+      shell: bash
+      run: |
+        echo "ok, i got triggered. do i get the input? ${{ inputs.who-to-greet }}"
