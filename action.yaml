@@ -13,3 +13,4 @@ runs:
       shell: bash
       run: |
         echo "ok, i got triggered. do i get the input? ${{ inputs.who-to-greet }}"
+        echo "do i have access to all that good stuff from my dispatch event? tag: ${{ github.event.client_payload.tag }}"
